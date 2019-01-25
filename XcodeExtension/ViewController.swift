@@ -10,18 +10,31 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet var inputTextView: NSTextView!
+    @IBOutlet var outputTextView: NSTextView!
+
+    @IBAction func convert(_ sender: NSButton) {
+
+        do {
+            if let json = try inputTextView.string.data(using: String.Encoding.utf8)?.JSONObject() {
+                outputTextView.string = covertToObjectModel(key: "Default", json: json)?.show() ?? ""
+            } else {
+                outputTextView.string = inputTextView.string
+            }
+        } catch (let error) {
+            outputTextView.string = error.localizedDescription
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        outputTextView.font = NSFont(name: "Monaco", size: 14)
+        outputTextView.isAutomaticQuoteSubstitutionEnabled = false
+        inputTextView.isAutomaticQuoteSubstitutionEnabled = false
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-
-
 }
-

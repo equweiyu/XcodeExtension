@@ -8,17 +8,13 @@
 
 import Foundation
 import XcodeKit
-import Tools
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
-    
-    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
 
-        // TODO:
-        
+    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) {
+
+        invocation.convertFromSnake()
         completionHandler(nil)
-        
     }
-    
-}
 
+}
