@@ -12,9 +12,8 @@ import XcodeKit
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) {
-
+        defer { completionHandler(nil) }
         invocation.convertFromSnake()
-        completionHandler(nil)
     }
 
 }

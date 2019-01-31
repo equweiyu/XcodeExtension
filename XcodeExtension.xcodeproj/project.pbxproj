@@ -323,15 +323,18 @@
 				TargetAttributes = {
 					DE432E69213530AE0018D555 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					DE432E80213530F60018D555 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					DE5E851421E78BF400F2DC48 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 					DEB2B2B121355F2100373957 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -596,7 +599,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baitianwei.XcodeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -617,7 +620,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baitianwei.XcodeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -638,7 +641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baitianwei.XcodeExtension.DeleteEmptyLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -659,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baitianwei.XcodeExtension.DeleteEmptyLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -725,7 +728,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baitianwei.XcodeExtension.SortLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -746,7 +749,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baitianwei.XcodeExtension.SortLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

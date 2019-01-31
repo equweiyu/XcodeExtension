@@ -13,8 +13,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) {
         // Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
+        defer { completionHandler(nil) }
         invocation.sortLine()
-        completionHandler(nil)
     }
 
 }
