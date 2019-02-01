@@ -17,7 +17,14 @@ class ViewController: NSViewController {
 
         do {
             if let json = try inputTextView.string.data(using: String.Encoding.utf8)?.JSONObject() {
-                outputTextView.string = covertToObjectModel(key: "Default", json: json)?.show() ?? ""
+                outputTextView.string =
+                """
+                // let jsonDecoder = JSONDecoder()
+                // jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                // let model = try? jsonDecoder.decode(DefaultClass.self, from: jsonData)
+                
+                \(covertToObjectModel(key: "DefaultClass", json: json)?.show() ?? "")
+                """
             } else {
                 outputTextView.string = inputTextView.string
             }

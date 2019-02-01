@@ -15,18 +15,18 @@ extension XCSourceEditorCommandInvocation {
         return buffer.selections as! [XCSourceTextRange]
     }
 
-    func deleteEmptyLine() {
+    func deleteEmptyLines() {
         selections.forEach { (selection) in
             let start = selection.startLine
             let end = selection.endLine
-            let emptyLines = buffer.lines.subarray(with: NSRange(start...end)).filter({ (e) -> Bool in
-                (e as! String).match(regular: "^\\s*$")
-            })
-            buffer.lines.removeObjects(in: emptyLines)
+            let emptyIndexs = (start...end)
+                .filter({ (index) -> Bool in
+                    (buffer.lines[index] as! String).match(regular: "^\\s*$")
+                })
+            buffer.lines.removeObjects(at: IndexSet(emptyIndexs))
         }
-
     }
-    func sortLine() {
+    func sortLines() {
         selections.forEach { (selection) in
             let start = selection.startLine
             let end = selection.endLine

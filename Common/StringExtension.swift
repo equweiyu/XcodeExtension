@@ -9,7 +9,7 @@
 import Foundation
 extension String {
     func match(regular: String) -> Bool {
-        return self.range(of: regular, options: .regularExpression, range: nil, locale: nil) != nil
+        return range(of: regular, options: .regularExpression) != nil
     }
     subscript (range: CountableClosedRange<Int>) -> String {
         let start = index(startIndex, offsetBy: range.lowerBound)

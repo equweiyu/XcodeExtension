@@ -28,17 +28,25 @@ func covertToObjectModel(key: String, json: Any) -> ObjectModel? {
 
 struct ObjectModel: TypeModel {
     var key: String
-
+    
     var valueTypeName: String {
         return convertFromSnakeCase(key)[0..<1].uppercased() + convertFromSnakeCase(key)[1...]
     }
-
+    
     let items: [TypeModel]
-
+    
     func show() -> String {
         let listShow: (String) -> String = {(f) in "[\(f)]"}
-        let parameterShow: (String, String) -> String = {(key, typeName) in "    let \(key): \(typeName)"}
-        let classShow: (String, String) -> String = {(name, body) in "class \(name) {\n\(body)\n}"}
+        let parameterShow: (String, String) -> String = {(key, typeName) in
+            "    let \(key): \(typeName)"
+        }
+        let typeShow: (String, String) -> String = {(name, body) in
+            """
+            struct \(name): Codable {
+            \(body)
+            }
+            """
+        }
         let valueTypeNameShow: (TypeModel) -> String = {(f) in
             if f is ObjectModel {
                 return f.valueTypeName
@@ -49,7 +57,7 @@ struct ObjectModel: TypeModel {
             }
         }
         let keyShow: (String) -> String = {(f) in convertFromSnakeCase(f)}
-        var result: String = classShow(valueTypeName, items.map({parameterShow(keyShow($0.key), valueTypeNameShow($0))}).joined(separator: "\n"))
+        var result: String = typeShow(valueTypeName, items.map({parameterShow(keyShow($0.key), valueTypeNameShow($0))}).joined(separator: "\n"))
         for item in items {
             if let objectItem = item as? ObjectModel {
                 result += "\n" + objectItem.show()
@@ -64,17 +72,17 @@ struct ObjectModel: TypeModel {
 }
 struct ArrayModel: TypeModel {
     var key: String
-
+    
     var valueTypeName: String {
         return item.valueTypeName
     }
-
+    
     let item: TypeModel
-
+    
 }
 struct PaitModel: TypeModel {
     var key: String
-
+    
     var valueTypeName: String {
         if let _ = value as? String {
             return "String"
@@ -88,7 +96,7 @@ struct PaitModel: TypeModel {
             return "\(Mirror(reflecting: value).subjectType)"
         }
     }
-
+    
     let value: Any
 }
 
