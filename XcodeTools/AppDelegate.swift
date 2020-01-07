@@ -1,15 +1,17 @@
 //
 //  AppDelegate.swift
-//  XcodeExtension
+//  XcodeTools
 //
-//  Created by 白天伟 on 2018/8/28.
-//  Copyright © 2018年 baitianwei. All rights reserved.
+//  Created by 白天伟 on 2019/4/25.
+//  Copyright © 2019 bai. All rights reserved.
 //
 
 import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -19,4 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+
 }
+
